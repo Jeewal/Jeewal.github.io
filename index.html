@@ -1,140 +1,96 @@
 <!DOCTYPE html>
 <html lang="en-IN" dir="ltr">
-<head>
-    <title>Do you want to be my Valentine?</title>
+  <head>
+    <title>Do you want to be my Valentine ?</title>
     <meta charset="utf-8">
-    <meta name="author" content="SidPro"/>
+    <meta name="author" content="Jeewal"/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-    <meta name="description" content="A website to invite your lover for a date"/>
-    <meta name="keywords" content="Valentine, Love, Proposal"/>
+    <meta name="description" content=" Do you want to be my Valentine? A website to invite your lover for a date by Collegeek online learning platform."/>
+    <meta name="keywords" content=" Do you want to be my Valentine,A website to invite your lover for a Valentine "/>
     <link rel="stylesheet" href="./style.css">
-    
-    <!-- Icons -->
+    <!-- icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="image/icons/favicon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="image/icons/favicon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="image/icons/favicon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="image/icons/favicon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="image/icons/favicon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="image/icons/favicon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="image/icons/favicon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="image/icons/favicon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="image/icons/favicon-180x180.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="image/icons/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="image/icons/favicon-32x32.png">
-    
-    <!-- Google Analytics -->
+    <link rel="icon" type="image/png" sizes="96x96" href="image/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="image/icons/favicon-192x192.png">
+    <link rel="shortcut icon" type="image/x-icon" href="image/icons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="image/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="image/icons/favicon-144x144.png">
+    <meta name="msapplication-config" content="image/icons/browserconfig.xml">
+    <link rel="manifest" href="image/icons/manifest.json">
+    <!-- icons -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3EWCZHDCG9"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+
       gtag('config', 'G-3EWCZHDCG9');
     </script>
-
-    <!-- Fireworks effect -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.0.0"></script>
-
-    <style>
-        body {
-            text-align: center;
-            font-family: Arial, sans-serif;
-            background-color: #ffebf0;
-            overflow: hidden;
-            margin: 0;
-        }
-
-        .container {
-            position: relative;
-            top: 20%;
-        }
-
-        .header_text {
-            font-size: 32px;
-            color: #d63384;
-        }
-
-        .gif_container img {
-            width: 200px;
-            height: auto;
-        }
-
-        .buttons {
-            margin-top: 20px;
-        }
-
-        .btn {
-            font-size: 20px;
-            padding: 10px 20px;
-            margin: 10px;
-            cursor: pointer;
-            border: none;
-            border-radius: 10px;
-        }
-
-        #yesButton {
-            background-color: #ff4081;
-            color: white;
-        }
-
-        #noButton {
-            background-color: #b0bec5;
-            color: white;
-            position: absolute;
-        }
-
-        /* Floating hearts effect */
-        .heart {
-            position: fixed;
-            bottom: -50px;
-            font-size: 24px;
-            color: red;
-            animation: floatUp 5s linear infinite;
-        }
-
-        @keyframes floatUp {
-            0% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(-100vh); opacity: 0; }
-        }
-    </style>
-</head>
-
-<body>
-    <div id="ask" class="container">
-        <h1 class="header_text">Do you want to be my Valentine?</h1>
-        <div class="gif_container">
-            <img src="image/ask.gif" alt="Cute animated illustration">
+  </head>
+  <body>
+        <div id="ask" class="container">
+            <div >
+                <h1 class = "header_text"> Do you want to be my Valentine?</h1>
+            </div>
+            <div class="gif_container">
+                <img src="image/ask.gif" alt="Cute animated illustration">
+            </div>
+            <div class = "buttons">
+                <button class="btn" id = "yesButton" onclick="nextPage()">Yes</button>
+                <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
+            </div>
+            <video id="novideo" width="0" height="0" controls>
+                <source src="image/SadMoment.mp4" 
+                   type="video/mp4">
+            </video>
         </div>
-        <div class="buttons">
-            <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
-            <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
+        <div id="ans" class="container">
+            <div >
+                <h1 class = "header_text">Yeeeyyyy!!</h1>
+            </div>
+            <div class="gif_container">
+                <img src="image/ans.gif" alt="Cute animated illustration">
+            </div>
+            <video id="ansvideo" width="0" height="0" controls>
+                <source src="image/KidsCheering.mp4" 
+                   type="video/mp4">
+            </video>
         </div>
-        <video id="novideo" width="0" height="0" controls>
-            <source src="image/SadMoment.mp4" type="video/mp4">
-        </video>
-    </div>
-
-    <div id="ans" class="container" style="display: none;">
-        <h1 class="header_text">Yeeeyyyy!!</h1>
-        <div class="gif_container">
-            <img src="image/ans.gif" alt="Cute animated illustration">
-        </div>
-        <video id="ansvideo" width="0" height="0" controls>
-            <source src="image/KidsCheering.mp4" type="video/mp4">
-        </video>
-    </div>
-
+    </body> 
     <script>
+
+        var debounce = function(fn, t = 1000) {
+            let timer;
+            return function(...args) {
+                clearTimeout(timer);
+                timer = setTimeout(() => fn(...args), t);
+            }
+        };
+
+
+        function playAudio()
+        {
+            document.getElementById('novideo').play();
+        }
+
         function nextPage() {
+            //window.location.href = "yes.html";
             document.getElementById('ans').style.display = 'block';
             document.getElementById('ask').style.display = 'none';
             document.getElementById('novideo').pause();
             document.getElementById('ansvideo').play();
-
-            // Fireworks effect
-            const duration = 3 * 1000;
-            const end = Date.now() + duration;
-
-            (function frame() {
-                confetti({
-                    particleCount: 5,
-                    spread: 100,
-                    origin: { y: 0.6 }
-                });
-
-                if (Date.now() < end) {
-                    requestAnimationFrame(frame);
-                }
-            })();
         }
 
         function moveButton() {
@@ -145,23 +101,5 @@
             playAudio();
         }
 
-        function playAudio() {
-            document.getElementById('novideo').play();
-        }
-
-        // Floating hearts effect
-        function createHeart() {
-            const heart = document.createElement("div");
-            heart.innerHTML = "❤️";
-            heart.classList.add("heart");
-            heart.style.left = Math.random() * window.innerWidth + "px";
-            heart.style.animationDuration = Math.random() * 3 + 2 + "s";
-            document.body.appendChild(heart);
-
-            setTimeout(() => heart.remove(), 5000);
-        }
-
-        setInterval(createHeart, 300);
-    </script>
-</body>
+    </script> 
 </html>
