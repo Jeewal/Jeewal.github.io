@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-IN" dir="ltr">
-  <head>
-    <title>Do you want to be my Valentine ?</title>
+<head>
+    <title>Do you want to be my Valentine?</title>
     <meta charset="utf-8">
     <meta name="author" content="Jeewal"/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-    <meta name="description" content=" Do you want to be my Valentine? A website to invite your lover for a date by Collegeek online learning platform."/>
-    <meta name="keywords" content=" Do you want to be my Valentine,A website to invite your lover for a Valentine "/>
+    <meta name="description" content="Do you want to be my Valentine? A website to invite your lover  for a Valentine."/>
+    <meta name="keywords" content="Do you want to be my Valentine, A website to invite your lover for a Valentine"/>
     <link rel="stylesheet" href="./style.css">
     <!-- icons -->
     <link rel="apple-touch-icon" sizes="57x57" href="image/icons/favicon-57x57.png">
@@ -29,68 +29,101 @@
     <meta name="msapplication-config" content="image/icons/browserconfig.xml">
     <link rel="manifest" href="image/icons/manifest.json">
     <!-- icons -->
-	<!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3EWCZHDCG9"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-3EWCZHDCG9');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-3EWCZHDCG9');
     </script>
-  </head>
-  <body>
-        <div id="ask" class="container">
-            <div >
-                <h1 class = "header_text"> Do you want to be my Valentine?</h1>
-            </div>
-            <div class="gif_container">
-                <img src="image/ask.gif" alt="Cute animated illustration">
-            </div>
-            <div class = "buttons">
-                <button class="btn" id = "yesButton" onclick="nextPage()">Yes</button>
-                <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
-            </div>
-            <video id="novideo" width="0" height="0" controls>
-                <source src="image/SadMoment.mp4" 
-                   type="video/mp4">
-            </video>
+    <style>
+        /* Floating hearts */
+        .heart {
+            position: absolute;
+            color: #ff69b4;
+            font-size: 24px;
+            animation: floatUp 5s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) translateX(0); opacity: 1; }
+            100% { transform: translateY(-10vh) translateX(20vw); opacity: 0; }
+        }
+
+        /* Drifting clouds */
+        .cloud {
+            position: absolute;
+            color: white;
+            font-size: 60px;
+            animation: drift 20s linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes drift {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100vw); }
+        }
+
+        /* Fireworks */
+        .firework {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #ff69b4;
+            border-radius: 50%;
+            animation: explode 1s ease-out infinite;
+        }
+
+        @keyframes explode {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(10); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div id="ask" class="container">
+        <div>
+            <h1 class="header_text">Do you want to be my Valentine?</h1>
         </div>
-        <div id="ans" class="container">
-            <div >
-                <h1 class = "header_text">Yeeeyyyy!!</h1>
-            </div>
-            <div class="gif_container">
-                <img src="image/ans.gif" alt="Cute animated illustration">
-            </div>
-            <video id="ansvideo" width="0" height="0" controls>
-                <source src="image/KidsCheering.mp4" 
-                   type="video/mp4">
-            </video>
+        <div class="gif_container">
+            <img src="image/ask.gif" alt="Cute animated illustration">
         </div>
-    </body> 
+        <div class="buttons">
+            <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
+            <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
+        </div>
+        <video id="novideo" width="0" height="0" controls>
+            <source src="image/SadMoment.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div id="ans" class="container">
+        <div>
+            <h1 class="header_text">Yeeeyyyy!!</h1>
+        </div>
+        <div class="gif_container">
+            <img src="image/ans.gif" alt="Cute animated illustration">
+        </div>
+        <video id="ansvideo" width="0" height="0" controls>
+            <source src="image/KidsCheering.mp4" type="video/mp4">
+        </video>
+    </div>
+
     <script>
-
-        var debounce = function(fn, t = 1000) {
-            let timer;
-            return function(...args) {
-                clearTimeout(timer);
-                timer = setTimeout(() => fn(...args), t);
-            }
-        };
-
-
-        function playAudio()
-        {
+        function playAudio() {
             document.getElementById('novideo').play();
         }
 
         function nextPage() {
-            //window.location.href = "yes.html";
             document.getElementById('ans').style.display = 'block';
             document.getElementById('ask').style.display = 'none';
             document.getElementById('novideo').pause();
             document.getElementById('ansvideo').play();
+
+            // Start effects
+            startHearts();
+            startClouds();
+            startFireworks();
         }
 
         function moveButton() {
@@ -101,5 +134,49 @@
             playAudio();
         }
 
-    </script> 
+        function startHearts() {
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * window.innerWidth + 'px';
+                heart.style.fontSize = Math.random() * 30 + 20 + 'px';
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+            }, 300);
+        }
+
+        function startClouds() {
+            setInterval(() => {
+                const cloud = document.createElement('div');
+                cloud.classList.add('cloud');
+                cloud.innerHTML = '☁️';
+                cloud.style.top = Math.random() * 50 + '%';
+                cloud.style.fontSize = Math.random() * 60 + 40 + 'px';
+                document.body.appendChild(cloud);
+
+                setTimeout(() => {
+                    cloud.remove();
+                }, 20000);
+            }, 5000);
+        }
+
+        function startFireworks() {
+            setInterval(() => {
+                const firework = document.createElement('div');
+                firework.classList.add('firework');
+                firework.style.left = Math.random() * window.innerWidth + 'px';
+                firework.style.top = Math.random() * window.innerHeight + 'px';
+                document.body.appendChild(firework);
+
+                setTimeout(() => {
+                    firework.remove();
+                }, 1000);
+            }, 200);
+        }
+    </script>
+</body>
 </html>
