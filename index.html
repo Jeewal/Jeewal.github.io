@@ -1,72 +1,76 @@
 <!DOCTYPE html>
 <html lang="en-IN" dir="ltr">
 <head>
-    <title>Do you want to be my valentine?</title>
+    <title>Do you wanna go out with me?</title>
     <meta charset="utf-8">
-    <meta name="author" content="Your Name"/>
+    <meta name="author" content="SidPro"/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-    <meta name="description" content="Do you want to be my valentine? A cute Valentine's invitation website"/>
-    <meta name="keywords" content="valentine invitation, be my valentine, cute valentine website"/>
+    <meta name="description" content="Do you wanna go out with me? A website to invite your lover for a date by Collegeek online learning platform."/>
+    <meta name="keywords" content="Do you wanna go out with me,A website to invite your lover for a date,Collegeek,Collegeek.com,learning programing,programming tutorial,tools,Live_DHTML,Convertor,microprocessor"/>
     <style>
-        body { 
-            height: 100vh; 
-            background-color: #F8C8DC; 
+        body {
+            height: 100vh;
+            background-color: #F8C8DC;
             margin: 0;
             overflow: hidden;
             position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
-        #ans { 
-            display: none; 
+        #ans {
+            display: none;
             text-align: center;
         }
-        #ansvideo, #novideo { 
-            visibility: hidden; 
+        #ansvideo, #novideo {
+            visibility: hidden;
         }
-        #noButton { 
-            position: absolute; 
-            transition: 0.5s; 
-        }
-        .header_text { 
-            font-family: 'Arial', sans-serif; 
-            font-size: 2.5em; 
-            font-weight: bold; 
-            color: #FF69B4; 
-            text-align: center; 
+        .header_text {
+            font-family: 'Arial', sans-serif;
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #FF69B4;
+            text-align: center;
             margin: 20px 0;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
-        .buttons { 
-            display: flex; 
+        .buttons {
+            display: flex;
             gap: 20px;
             margin-top: 30px;
             position: relative;
         }
-        .btn { 
-            background-color: #FF69B4; 
-            color: white; 
-            padding: 15px 32px; 
-            font-size: 1.2em; 
-            border: none; 
-            border-radius: 25px; 
-            cursor: pointer; 
+        .btn {
+            background-color: #FF69B4;
+            color: white;
+            padding: 15px 32px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
             transition: transform 0.3s, background-color 0.3s;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-        .btn:hover { 
-            background-color: #FF1493; 
+        .btn:hover {
+            background-color: #FF1493;
             transform: scale(1.05);
         }
-        .gif_container { 
-            max-width: 400px; 
+        #noButton {
+            position: absolute;
+            transition: all 0.5s ease;
+        }
+        .gif_container {
+            max-width: 400px;
             margin: 20px auto;
         }
-        img { 
-            max-width: 100%; 
-            height: auto; 
+        img {
+            max-width: 100%;
+            height: auto;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
-        
+
         /* Floating hearts */
         .heart {
             position: absolute;
@@ -108,13 +112,13 @@
 <body>
     <div id="ask" class="container">
         <div>
-            <h1 class="header_text">Do you want to be my valentine? 💖</h1>
+            <h1 class="header_text">Do you wanna go out with me? 💖</h1>
         </div>
         <div class="gif_container">
-            <img src="image/ask.gif" alt="Cute Valentine animation">
+            <img src="image/ask.gif" alt="Cute animated illustration">
         </div>
         <div class="buttons">
-            <button class="btn" id="yesButton" onclick="nextPage()">Yes! 😍</button>
+            <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
             <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
         </div>
         <video id="novideo" width="0" height="0" controls>
@@ -124,10 +128,10 @@
     
     <div id="ans" class="container">
         <div>
-            <h1 class="header_text">Yay! You made my day! 💝</h1>
+            <h1 class="header_text">Yeeeyyyy!! 💝</h1>
         </div>
         <div class="gif_container">
-            <img src="image/ans.gif" alt="Happy Valentine animation">
+            <img src="image/ans.gif" alt="Cute animated illustration">
         </div>
         <video id="ansvideo" width="0" height="0" controls>
             <source src="image/KidsCheering.mp4" type="video/mp4">
