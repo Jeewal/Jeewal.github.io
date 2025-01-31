@@ -1,93 +1,105 @@
 <!DOCTYPE html>
 <html lang="en-IN" dir="ltr">
-<head>
-    <title>Do you want to be my valentine?</title>
+  <head>
+    <title>Do you want to be my Valentine ?</title>
     <meta charset="utf-8">
     <meta name="author" content="SidPro"/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-    <meta name="description" content="Do you want to be my valentine? A website to invite your valentine."/>
-    <meta name="keywords" content="Do you want to be my valentine, valentine invitation, cute valentine website"/>
-    <style>
-        /* Added floating animations */
-        .floating-element {
-            position: absolute;
-            animation: float 6s infinite ease-in-out;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-    </style>
-    <!-- Rest of the head section remains unchanged -->
-    <!-- ... (keep all existing link and meta tags) ... -->
-</head>
-<body>
+    <meta name="description" content=" Do you want to be my Valentine? A website to invite your lover for a date by Collegeek online learning platform."/>
+    <meta name="keywords" content=" Do you want to be my Valentine,A website to invite your lover for a Valentine "/>
+    <link rel="stylesheet" href="./style.css">
+    <!-- icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="image/icons/favicon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="image/icons/favicon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="image/icons/favicon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="image/icons/favicon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="image/icons/favicon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="image/icons/favicon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="image/icons/favicon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="image/icons/favicon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="image/icons/favicon-180x180.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="image/icons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="image/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="image/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="image/icons/favicon-192x192.png">
+    <link rel="shortcut icon" type="image/x-icon" href="image/icons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="image/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="image/icons/favicon-144x144.png">
+    <meta name="msapplication-config" content="image/icons/browserconfig.xml">
+    <link rel="manifest" href="image/icons/manifest.json">
+    <!-- icons -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3EWCZHDCG9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3EWCZHDCG9');
+    </script>
+  </head>
+  <body>
         <div id="ask" class="container">
             <div >
-                <h1 class="header_text">Do you want to be my valentine? 💖</h1>
+                <h1 class = "header_text"> Do you want to be my Valentine?</h1>
             </div>
-            <!-- Rest of ask container remains unchanged -->
-            <!-- ... -->
-
+            <div class="gif_container">
+                <img src="image/ask.gif" alt="Cute animated illustration">
+            </div>
+            <div class = "buttons">
+                <button class="btn" id = "yesButton" onclick="nextPage()">Yes</button>
+                <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
+            </div>
+            <video id="novideo" width="0" height="0" controls>
+                <source src="image/SadMoment.mp4" 
+                   type="video/mp4">
+            </video>
+        </div>
         <div id="ans" class="container">
             <div >
-                <h1 class="header_text">Yeeeyyyy!! 💝</h1>
+                <h1 class = "header_text">Yeeeyyyy!!</h1>
             </div>
             <div class="gif_container">
                 <img src="image/ans.gif" alt="Cute animated illustration">
             </div>
-            <!-- Removed QR code div -->
             <video id="ansvideo" width="0" height="0" controls>
                 <source src="image/KidsCheering.mp4" 
                    type="video/mp4">
             </video>
         </div>
-
+    </body> 
     <script>
-        function createFloatingElement(type) {
-            const element = document.createElement('div');
-            element.className = 'floating-element';
-            element.style.left = Math.random() * window.innerWidth + 'px';
-            element.style.animationDuration = Math.random() * 3 + 3 + 's';
-            
-            if(type === 'heart') {
-                element.innerHTML = '❤️';
-                element.style.fontSize = Math.random() * 30 + 20 + 'px';
-            } else {
-                element.innerHTML = '🎈';
-                element.style.fontSize = Math.random() * 40 + 30 + 'px';
-            }
-            
-            document.body.appendChild(element);
-            
-            setTimeout(() => {
-                element.remove();
-            }, 6000);
-        }
 
-        function sendEmailNotification() {
-            window.location.href = 
-                'mailto:jeewalkunwar1@gmail.com?subject=Valentine%20Response&body=She%20Said%20Yes!%20💖';
+        var debounce = function(fn, t = 1000) {
+            let timer;
+            return function(...args) {
+                clearTimeout(timer);
+                timer = setTimeout(() => fn(...args), t);
+            }
+        };
+
+
+        function playAudio()
+        {
+            document.getElementById('novideo').play();
         }
 
         function nextPage() {
+            //window.location.href = "yes.html";
             document.getElementById('ans').style.display = 'block';
             document.getElementById('ask').style.display = 'none';
             document.getElementById('novideo').pause();
             document.getElementById('ansvideo').play();
-            
-            // Add floating elements
-            setInterval(() => {
-                createFloatingElement(Math.random() > 0.5 ? 'heart' : 'balloon');
-            }, 300);
-            
-            // Send email notification
-            sendEmailNotification();
         }
 
-        /* Rest of the script remains unchanged */
-        // ... (keep existing moveButton and playAudio functions) ...
-    </script>
-</body>
+        function moveButton() {
+            var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth);
+            var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight);
+            document.getElementById('noButton').style.left = `${x}px`;
+            document.getElementById('noButton').style.top = `${y}px`;
+            playAudio();
+        }
+
+    </script> 
 </html>
