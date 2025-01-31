@@ -55,7 +55,30 @@ body {
     margin-top: 20px;
     margin-left: 20px;
 }
+.date-button {
+        background: linear-gradient(135deg, #ff6b81, #ff4757);
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        box-shadow: 0px 4px 10px rgba(255, 71, 87, 0.3);
+        transition: all 0.3s ease-in-out;
+        outline: none;
+    }
 
+    .date-button:hover {
+        background: linear-gradient(135deg, #ff4757, #e84118);
+        box-shadow: 0px 6px 15px rgba(255, 71, 87, 0.5);
+        transform: translateY(-3px);
+    }
+
+    .date-button:active {
+        transform: scale(0.95);
+        box-shadow: 0px 3px 8px rgba(255, 71, 87, 0.3);
+    }
 .btn {
     background-color: #FFB6C1;
     color: white;
