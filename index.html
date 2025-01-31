@@ -127,7 +127,6 @@
     <div id="ans" class="container">
         <div>
             <h1 class="header_text">Yayyyy!</h1>
-            <h1>Look around !</h1>
         </div>
         <div class="gif_container">
             <img src="image/ans.gif" alt="Cute animated illustration">
@@ -162,7 +161,12 @@
             startClouds();
             startFireworks();
         }
-
+         
+        setTimeout(() => {
+        document.getElementById('dateButton').disabled = false;
+        document.getElementById('dateButton').style.opacity = "1"; // Make it fully visible
+        }, 30000); // 30 seconds
+        
         function moveButton() {
             var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth);
             var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight);
