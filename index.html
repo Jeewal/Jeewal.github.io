@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-IN" dir="ltr">
 <head>
-    <title>Do you wanna go out with me?</title>
+    <title>Do you want to be my valentine?</title>
     <meta charset="utf-8">
     <meta name="author" content="SidPro"/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-    <meta name="description" content="Do you wanna go out with me? A website to invite your lover for a date by Collegeek online learning platform."/>
-    <meta name="keywords" content="Do you wanna go out with me,A website to invite your lover for a date,Collegeek,Collegeek.com,learning programing,programming tutorial,tools,Live_DHTML,Convertor,microprocessor"/>
+    <meta name="description" content="Do you want to be my valentine? A website to invite your valentine."/>
+    <meta name="keywords" content="Do you want to be my valentine, valentine invitation, cute valentine website"/>
     <style>
         body {
             height: 100vh;
@@ -71,48 +71,62 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        /* Floating hearts */
-        .heart {
+        /* Floating hearts and balloons */
+        .heart, .balloon {
             position: absolute;
-            width: 20px;
-            height: 20px;
+            animation: float 6s infinite ease-in-out;
+        }
+        .heart {
+            width: 30px;
+            height: 30px;
             background: #ff69b4;
             transform: rotate(-45deg);
-            animation: float 5s infinite ease-in-out;
         }
         .heart::before,
         .heart::after {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: 30px;
+            height: 30px;
             background: #ff69b4;
             border-radius: 50%;
         }
         .heart::before {
-            top: -10px;
+            top: -15px;
             left: 0;
         }
         .heart::after {
-            left: 10px;
+            left: 15px;
             top: 0;
+        }
+        .balloon {
+            width: 50px;
+            height: 70px;
+            background: #ff69b4;
+            border-radius: 50%;
+            clip-path: ellipse(25% 40% at 50% 50%);
+        }
+        .balloon::before {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            width: 2px;
+            height: 20px;
+            background: #000;
+            transform: translateX(-50%);
         }
         @keyframes float {
             0% { transform: translateY(0) rotate(-45deg); }
             50% { transform: translateY(-20px) rotate(-45deg); }
             100% { transform: translateY(0) rotate(-45deg); }
         }
-
-        @media (max-width: 600px) {
-            .header_text { font-size: 1.8em; }
-            .btn { padding: 12px 24px; }
-        }
     </style>
 </head>
 <body>
     <div id="ask" class="container">
         <div>
-            <h1 class="header_text">Do you wanna go out with me? 💖</h1>
+            <h1 class="header_text">Do you want to be my valentine? 💖</h1>
         </div>
         <div class="gif_container">
             <img src="image/ask.gif" alt="Cute animated illustration">
@@ -148,7 +162,8 @@
             document.getElementById('ask').style.display = 'none';
             document.getElementById('novideo').pause();
             document.getElementById('ansvideo').play();
-            startHearts();
+            startFloatingElements();
+            sendEmail();
         }
 
         function moveButton() {
@@ -161,27 +176,27 @@
             playAudio();
         }
 
-        function startHearts() {
-            const heartCount = 50;
+        function startFloatingElements() {
             const container = document.body;
-            
-            for (let i = 0; i < heartCount; i++) {
-                const heart = document.createElement('div');
-                heart.classList.add('heart');
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = Math.random() * 3 + 2 + 's';
-                heart.style.opacity = Math.random();
-                heart.style.width = heart.style.height = Math.random() * 20 + 10 + 'px';
-                container.appendChild(heart);
-                
-                setTimeout(() => {
-                    heart.remove();
-                }, 10000);
+            const numElements = 30;
+
+            for (let i = 0; i < numElements; i++) {
+                const element = document.createElement('div');
+                element.classList.add(Math.random() > 0.5 ? 'heart' : 'balloon');
+                element.style.left = Math.random() * 100 + 'vw';
+                element.style.animationDuration = Math.random() * 3 + 4 + 's';
+                element.style.opacity = Math.random();
+                element.style.width = element.style.height = Math.random() * 40 + 20 + 'px';
+                container.appendChild(element);
             }
-            
-            setInterval(() => {
-                startHearts();
-            }, 1000);
+        }
+
+        function sendEmail() {
+            const email = 'jeewalkunwar1@gmail.com';
+            const subject = 'She Said Yes!';
+            const body = 'She said YES to being your valentine! 💖';
+
+            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         }
     </script>
 </body>
